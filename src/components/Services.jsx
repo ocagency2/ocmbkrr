@@ -1,0 +1,112 @@
+import '../styles/Services.css';
+
+export default function Services() {
+  const services = [
+    {
+      title: '1-Year Mentorship Program',
+      price: '$2,999',
+      description: 'Comprehensive year-long mentorship covering crypto trading, DeFi strategies, and portfolio management.',
+      features: [
+        'Weekly 1-on-1 coaching sessions',
+        'Exclusive community access',
+        'Live trading analysis',
+        'Custom strategy development',
+        'Priority support 24/7'
+      ]
+    },
+    {
+      title: 'Crypto Mastery Course',
+      price: '$499',
+      description: 'Complete beginner to advanced course covering everything you need to succeed in crypto.',
+      features: [
+        '50+ hours of video content',
+        'Hands-on practical exercises',
+        'Certificate of completion',
+        'Lifetime access to materials',
+        'Community forum access'
+      ],
+      popular: true
+    },
+    {
+      title: 'Fund Management',
+      price: 'Custom',
+      description: 'Professional management of your crypto portfolio with proven DeFi strategies.',
+      features: [
+        'Personalized investment strategy',
+        'Risk-adjusted returns',
+        'Monthly performance reports',
+        'Tax optimization support',
+        'Dedicated account manager'
+      ]
+    },
+    {
+      title: 'Airdrop Farming',
+      price: '$149/mo',
+      description: 'Automated airdrop participation service to maximize your free token opportunities.',
+      features: [
+        'Multi-chain support',
+        'Automated task completion',
+        'Real-time opportunity alerts',
+        'ROI tracking dashboard',
+        'Proven success rate'
+      ]
+    }
+  ];
+
+  return (
+    <section id="services" className="services section">
+      <div className="services-content fade-in">
+        <div className="section-header">
+          <span className="section-tag">SERVICES</span>
+          <h2 className="section-title">
+            Choose Your Path to{' '}
+            <span className="gradient-text">Financial Freedom</span>
+          </h2>
+          <p className="section-description">
+            Whether you're a beginner or an experienced trader, we have the perfect solution for your crypto journey.
+          </p>
+        </div>
+
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className={`service-card glass-card ${service.popular ? 'popular' : ''}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {service.popular && (
+                <div className="popular-badge">
+                  <span>Most Popular</span>
+                </div>
+              )}
+
+              <div className="service-header">
+                <h3>{service.title}</h3>
+                <div className="service-price">
+                  <span className="price gradient-text">{service.price}</span>
+                </div>
+              </div>
+
+              <p className="service-description">{service.description}</p>
+
+              <ul className="service-features">
+                {service.features.map((feature, idx) => (
+                  <li key={idx}>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20 6L9 17L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <button className={service.popular ? 'btn-primary' : 'btn-secondary'}>
+                Get Started
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
