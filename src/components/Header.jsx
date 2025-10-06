@@ -28,6 +28,7 @@ export default function Header() {
         <div className="logo">
           <span className="logo-icon">₿</span>
           <span className="logo-text gradient-text">CryptoBounty</span>
+          <span className="logo-domain">(teamcryptodrop.com)</span>
         </div>
 
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>

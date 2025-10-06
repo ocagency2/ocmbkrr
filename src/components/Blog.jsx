@@ -3,25 +3,46 @@ import '../styles/Blog.css';
 export default function Blog() {
   const blogPosts = [
     {
-      title: 'Understanding DeFi Yield Farming in 2024',
-      excerpt: 'Learn the fundamentals of yield farming and how to maximize your returns in decentralized finance protocols.',
-      category: 'DeFi',
-      date: 'Mar 15, 2024',
+      title: "Airdrop Farming 101: Your Complete Beginner's Guide",
+      excerpt: 'Learn what airdrop farming is, how it works, and proven strategies to maximize your free token allocations in the crypto space.',
+      category: 'Airdrops',
+      date: 'Jan 15, 2025',
       readTime: '8 min read'
     },
     {
-      title: 'Top 10 Upcoming Airdrops to Watch',
-      excerpt: 'Discover the most promising upcoming airdrops and how to position yourself to maximize your allocation.',
+      title: "Beginner's Guide to DeFi Safety and Security",
+      excerpt: 'Essential security practices to protect your crypto assets in DeFi. Learn about wallet security, smart contract risks, and safe trading habits.',
+      category: 'DeFi',
+      date: 'Jan 10, 2025',
+      readTime: '10 min read'
+    },
+    {
+      title: 'How to Prepare for an Airdrop: Step-by-Step',
+      excerpt: 'Position yourself for successful airdrop participation with our comprehensive preparation checklist and best practices.',
       category: 'Airdrops',
-      date: 'Mar 12, 2024',
+      date: 'Jan 5, 2025',
+      readTime: '7 min read'
+    },
+    {
+      title: 'Why a Crypto Mentorship Accelerates Your Success',
+      excerpt: 'Discover how personalized crypto mentorship helps you avoid costly mistakes and fast-track your journey to financial independence.',
+      category: 'Education',
+      date: 'Dec 28, 2024',
       readTime: '6 min read'
     },
     {
-      title: 'Risk Management Strategies for Crypto Investors',
-      excerpt: 'Essential risk management techniques every crypto investor needs to know to protect their portfolio.',
-      category: 'Trading',
-      date: 'Mar 8, 2024',
-      readTime: '10 min read'
+      title: 'How CryptoBounty Mitigates Risk in Crypto Investing',
+      excerpt: 'Learn about our proven risk management framework and how we help clients navigate the volatile crypto markets safely.',
+      category: 'Strategy',
+      date: 'Dec 20, 2024',
+      readTime: '9 min read'
+    },
+    {
+      title: 'The Future of DeFi for Retail Investors',
+      excerpt: 'Explore upcoming trends in decentralized finance and how everyday investors can participate in the next wave of financial innovation.',
+      category: 'DeFi',
+      date: 'Dec 15, 2024',
+      readTime: '11 min read'
     }
   ];
 

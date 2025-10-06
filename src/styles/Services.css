@@ -40,6 +40,20 @@
   opacity: 0;
 }
 
+.service-card.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.service-card.disabled button {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.service-card.disabled:hover {
+  transform: none;
+}
+
 .service-card.popular {
   border-color: var(--accent-purple);
   background: rgba(168, 85, 247, 0.05);

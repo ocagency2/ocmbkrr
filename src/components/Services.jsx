@@ -1,10 +1,21 @@
+import { useState } from 'react';
 import '../styles/Services.css';
+import BookingModal from './BookingModal';
 
 export default function Services() {
+  const [showBooking, setShowBooking] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+
+  const handleBookNow = (service) => {
+    setSelectedService(service);
+    setShowBooking(true);
+  };
+
   const services = [
     {
-      title: '1-Year Mentorship Program',
-      price: '$2,999',
+      title: '1-Year Mentorship',
+      price: 'US$500',
+      priceValue: 500,
       description: 'Comprehensive year-long mentorship covering crypto trading, DeFi strategies, and portfolio management.',
       features: [
         'Weekly 1-on-1 coaching sessions',
@@ -12,11 +23,27 @@ export default function Services() {
         'Live trading analysis',
         'Custom strategy development',
         'Priority support 24/7'
-      ]
+      ],
+      available: true
+    },
+    {
+      title: 'Info Call',
+      price: 'US$25',
+      priceValue: 25,
+      description: 'Initial consultation call to discuss your crypto goals and how we can help you succeed.',
+      features: [
+        '30-minute consultation',
+        'Personalized roadmap',
+        'Q&A session',
+        'Strategy recommendations',
+        'Next steps guidance'
+      ],
+      available: true
     },
     {
       title: 'Crypto Mastery Course',
-      price: '$499',
+      price: 'Coming Soon',
+      priceValue: 0,
       description: 'Complete beginner to advanced course covering everything you need to succeed in crypto.',
       features: [
         '50+ hours of video content',
@@ -25,11 +52,12 @@ export default function Services() {
         'Lifetime access to materials',
         'Community forum access'
       ],
-      popular: true
+      available: false
     },
     {
-      title: 'Fund Management',
-      price: 'Custom',
+      title: 'Investment Management',
+      price: 'Coming Soon',
+      priceValue: 0,
       description: 'Professional management of your crypto portfolio with proven DeFi strategies.',
       features: [
         'Personalized investment strategy',
@@ -37,11 +65,13 @@ export default function Services() {
         'Monthly performance reports',
         'Tax optimization support',
         'Dedicated account manager'
-      ]
+      ],
+      available: false
     },
     {
       title: 'Airdrop Farming',
-      price: '$149/mo',
+      price: 'Coming Soon',
+      priceValue: 0,
       description: 'Automated airdrop participation service to maximize your free token opportunities.',
       features: [
         'Multi-chain support',
@@ -49,7 +79,8 @@ export default function Services() {
         'Real-time opportunity alerts',
         'ROI tracking dashboard',
         'Proven success rate'
-      ]
+      ],
+      available: false
     }
   ];
 
@@ -71,15 +102,9 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`service-card glass-card ${service.popular ? 'popular' : ''}`}
+              className={`service-card glass-card ${service.available ? '' : 'disabled'}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {service.popular && (
-                <div className="popular-badge">
-                  <span>Most Popular</span>
-                </div>
-              )}
-
               <div className="service-header">
                 <h3>{service.title}</h3>
                 <div className="service-price">
@@ -100,13 +125,27 @@ export default function Services() {
                 ))}
               </ul>
 
-              <button className={service.popular ? 'btn-primary' : 'btn-secondary'}>
-                Get Started
+              <button
+                className={service.available ? 'btn-primary' : 'btn-secondary'}
+                onClick={() => service.available && handleBookNow(service)}
+                disabled={!service.available}
+              >
+                {service.available ? 'Book Now' : 'Coming Soon'}
               </button>
             </div>
           ))}
         </div>
       </div>
+
+      {showBooking && (
+        <BookingModal
+          service={selectedService}
+          onClose={() => {
+            setShowBooking(false);
+            setSelectedService(null);
+          }}
+        />
+      )}
     </section>
   );
 }

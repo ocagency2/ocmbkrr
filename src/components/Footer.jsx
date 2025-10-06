@@ -1,4 +1,5 @@
 import '../styles/Footer.css';
+import ContactForm from './ContactForm';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -15,6 +16,10 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
+        <div className="footer-contact-section">
+          <ContactForm />
+        </div>
+
         <div className="footer-grid">
           <div className="footer-column">
             <div className="footer-logo">
@@ -22,7 +27,7 @@ export default function Footer() {
               <span className="logo-text gradient-text">CryptoBounty</span>
             </div>
             <p className="footer-description">
-              The world's first consumer-oriented DeFi company, specializing in airdrop farming and decentralized finance.
+              CryptoBounty (operating via teamcryptodrop.com) - The world's first consumer-oriented DeFi company, specializing in airdrop farming and decentralized finance.
             </p>
             <div className="social-links">
               <a href="#" className="social-link" aria-label="Twitter">
@@ -79,23 +84,26 @@ export default function Footer() {
           </div>
 
           <div className="footer-column">
-            <h4>Newsletter</h4>
-            <p className="newsletter-text">Stay updated with crypto insights and opportunities.</p>
-            <div className="newsletter-form">
-              <input type="email" placeholder="Enter your email" />
-              <button className="btn-primary">Subscribe</button>
-            </div>
+            <h4>Legal</h4>
+            <ul className="footer-links">
+              <li><a href="/privacy">Privacy Policy</a></li>
+              <li><a href="/terms">Terms of Service</a></li>
+              <li><a href="/cookies">Cookie Policy</a></li>
+              <li><a href="/disclaimer">Risk Disclaimer</a></li>
+            </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2024 CryptoBounty. All rights reserved.</p>
+          <p>&copy; 2025 CryptoBounty / teamcryptodrop.com. All rights reserved.</p>
           <div className="footer-legal">
-            <a href="#">Privacy Policy</a>
+            <a href="/privacy">Privacy Policy</a>
             <span>•</span>
-            <a href="#">Terms of Service</a>
+            <a href="/terms">Terms of Service</a>
             <span>•</span>
-            <a href="#">Cookie Policy</a>
+            <a href="/cookies">Cookie Policy</a>
+            <span>•</span>
+            <a href="/disclaimer">Risk Disclaimer</a>
           </div>
         </div>
       </div>

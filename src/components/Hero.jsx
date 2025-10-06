@@ -1,11 +1,12 @@
+import { useState } from 'react';
 import '../styles/Hero.css';
+import BookingModal from './BookingModal';
 
 export default function Hero() {
-  const scrollToServices = () => {
-    const element = document.getElementById('services');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const [showBooking, setShowBooking] = useState(false);
+
+  const handleGetStarted = () => {
+    setShowBooking(true);
   };
 
   return (
@@ -21,7 +22,7 @@ export default function Hero() {
             Crypto Bounty is the world's first Airdrop farming company, also specializing in Decentralized Finance.
             We offer mentoring, fund management, and much more.
           </p>
-          <button className="btn-primary hero-btn" onClick={scrollToServices}>
+          <button className="btn-primary hero-btn" onClick={handleGetStarted}>
             Get Started
           </button>
         </div>
@@ -62,6 +63,8 @@ export default function Hero() {
         <div className="scroll-line"></div>
         <span>Scroll</span>
       </div>
+
+      {showBooking && <BookingModal onClose={() => setShowBooking(false)} />}
     </section>
   );
 }
